@@ -12,6 +12,7 @@ import Step07 from '@/pages/Step07'
 import Step08 from '@/pages/Step08'
 import Step09 from '@/pages/Step09'
 import Step10 from '@/pages/Step10'
+import pdf from '@/pages/pdf'
 
 Vue.use(Router)
 
@@ -79,6 +80,11 @@ const routers = [
     path: '/step10',
     name: 'step10',
     component: Step10
+  },
+  {
+    path: '/pdf',
+    name: 'pdf',
+    component:pdf
   }]
 export default new Router({
   routes: routers
