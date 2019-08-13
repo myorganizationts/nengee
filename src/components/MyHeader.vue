@@ -1,5 +1,5 @@
 <template>
-  <div class="my-header" v-if="isHeader">
+  <div class="my-header">
     <div class="line"></div>
     <el-row :gutter="20">
       <el-col :span="5"><div class="logo"><img src="../assets/imgs/yuansfer_LOGO.png" alt=""></div></el-col>
@@ -54,7 +54,8 @@ export default {
     handleSelect (key, keyPath) {
       console.log(key, keyPath)
     },
-  }
+   
+  },
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->

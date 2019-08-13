@@ -24,20 +24,49 @@
                 <el-col :span="6"
                     ><div class="grid-content bg-purple">
                         <p class="item-title item-style">
-                          Merchant's Signature<span class="must-label">*</span>
+                            Merchant's Signature<span class="must-label"
+                                >*</span
+                            >
                         </p>
-                      </div
+                    </div></el-col
+                >
+            </el-row>
+            <span class="try">Try Again</span>
+            <!--<span  class="try">comfirm</span>-->
+        </div>
+        <div class="box" v-show="showSignature"></div>
+        <div class="box_message">
+            <el-row :gutter="20">
+                <el-col :span="6"
+                    ><div class="grid-content bg-purple">
+                        <p class="item-title item-style">
+                            Name<span class="must-label">*</span>
+                        </p>
+                        <el-input v-model="accountNum"></el-input></div
+                ></el-col>
+                <el-col :span="6"
+                    ><div class="grid-content bg-purple">
+                        <p class="item-title item-style">
+                            Title<span class="must-label">*</span>
+                        </p>
+                        <el-input v-model="routingNum"></el-input></div
+                ></el-col>
+                <el-col :span="6"
+                    ><div class="grid-content bg-purple">
+                        <p class="item-title item-style">
+                            Date<span class="must-label">*</span>
+                        </p>
+                        <el-input v-model="swiftCode"></el-input></div
                 ></el-col>
             </el-row>
-            <span  class="try">Try Again</span>
-          <!--<span  class="try">comfirm</span>-->
-        </div>
-        <div class="box" v-show="showSignature">
-
         </div>
         <hr />
         <el-button class="previous-btn" @click="back()">Previous</el-button>
-        <el-button type="primary" class="next-btn" @click="go()" :disabled="!showSignature"
+        <el-button
+            type="primary"
+            class="next-btn"
+            @click="go()"
+            :disabled="!showSignature"
             >Next</el-button
         >
     </div>
@@ -45,28 +74,28 @@
 
 <script>
 export default {
-  data () {
-    return {
-      allAgree: false,
-      showSignature: false,
-      signatureURL: '' // 签名图片传到服务器中保存
-    }
-  },
-  watch: {
-    allAgree (curVal) {
-      console.log('allAgree (curVal)', curVal)
-      curVal ? this.showSignature = true : this.showSignature = false
-    }
-  },
-  methods: {
-    go () {
-      this.$router.push({ name: 'step10' })
+    data() {
+        return {
+            allAgree: false,
+            showSignature: false,
+            signatureURL: "" // 签名图片传到服务器中保存
+        };
     },
-    back () {
-      this.$router.go(-1)
+    watch: {
+        allAgree(curVal) {
+            console.log("allAgree (curVal)", curVal);
+            curVal ? (this.showSignature = true) : (this.showSignature = false);
+        }
+    },
+    methods: {
+        go() {
+            this.$router.push({ name: "step10" });
+        },
+        back() {
+            this.$router.go(-1);
+        }
     }
-  }
-}
+};
 </script>
 
 <style scoped lang="less">
@@ -80,40 +109,43 @@ export default {
     margin-bottom: 20px;
 }
 hr {
-    margin-top: 50px;
+    margin-top: 100px;
 }
 .checkBox {
     margin-left: 50px;
+    padding-bottom: 50px;
 }
-.signatureWall{
-  margin-top: 20px;
-  margin-left: 50px;
-  height: 20px;
-  width: 100%;
-
+.signatureWall {
+    margin-top: 20px;
+    margin-left: 50px;
+    height: 20px;
+    width: 100%;
 }
-.el-col-6{
-  width: 120px;
+// .el-col-6{
+//   width: 160px;
+// }
+.el-row {
+    float: left;
+    line-height: 20px;
 }
-.el-row{
-  float: left;
-  line-height: 20px;
+.try {
+    float: left;
+    margin-left: 150px;
+    font-size: 13px;
+    height: 20px;
+    line-height: 20px;
+    color: #212121;
+    border: 1px #ddd solid;
 }
-.try{
- float: left;
-  margin-left: 150px;
-  font-size: 13px;
-  height: 20px;
-  line-height: 20px;
-  color: #212121;
-  border: 1px #ddd solid;
+.box {
+    width: 360px;
+    height: 150px;
+    border: 1px solid #cccccc;
+    background-color: #ccc;
+    margin-top: 20px;
+    margin-left: 50px;
 }
-.box{
-  width: 360px;
-  height: 150px;
-  border: 1px solid #cccccc;
-  background-color: #ccc;
-  margin-top: 20px;
-  margin-left: 50px;
+.box_message{
+  margin-left: 40px;
 }
 </style>
