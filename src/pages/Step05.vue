@@ -6,25 +6,25 @@
     <el-row :gutter="20">
       <el-col :span="20"><div class="grid-content bg-purple">
         <p class="item-title item-style">Type of Ownership<span class="must-label">*</span></p>
-        <el-radio-group v-model="radio">
-          <el-radio :label="3">Sole Proprietor</el-radio>
-          <el-radio :label="6">Partnership</el-radio>
-          <el-radio :label="9">Professional Assoc.</el-radio>
-          <el-radio :label="12">Corporation</el-radio>
-          <el-radio :label="15">Tax Exempt Org (501C)</el-radio>
-          <el-radio :label="18">LLC</el-radio>
-          <el-radio :label="18">Other</el-radio>
+        <el-radio-group v-model="ownership">
+          <el-radio label="soleProprietor">Sole Proprietor</el-radio>
+          <el-radio label="partnership">Partnership</el-radio>
+          <el-radio label="professionalAssoc">Professional Assoc.</el-radio>
+          <el-radio label="corporation">Corporation</el-radio>
+          <el-radio label="taxExemptOrg">Tax Exempt Org (501C)</el-radio>
+          <el-radio label="LLC">LLC</el-radio>
+          <el-radio label="Other">Other</el-radio>
         </el-radio-group>
       </div></el-col>
     </el-row>
     <el-row :gutter="20">
       <el-col :span="12"><div class="grid-content bg-purple">
         <p class="item-title item-style">eBusiness Established Date<span class="must-label">*</span></p>
-        <el-input></el-input>
+        <el-input v-model="establishedDate"></el-input>
       </div></el-col>
       <el-col :span="12"><div class="grid-content bg-purple">
         <p class="item-title item-style">Federal Tax ID #<span class="must-label">*</span></p>
-        <el-input></el-input>
+        <el-input v-model="taxId"></el-input>
       </div></el-col>
     </el-row>
     <el-row :gutter="20">
@@ -33,7 +33,7 @@
         <el-input
           type="textarea"
           placeholder="请输入内容"
-          v-model="textarea"
+          v-model="descriptionBUS"
           maxlength="30"
           show-word-limit
         >
@@ -43,15 +43,15 @@
     <el-row :gutter="20">
       <el-col :span="6"><div class="grid-content bg-purple">
         <p class="item-title item-style">Annual Sale<span class="must-label">*</span></p>
-        <el-input></el-input>
+        <el-input v-model="annualSale"></el-input>
       </div></el-col>
       <el-col :span="6"><div class="grid-content bg-purple">
         <p class="item-title item-style">Average Ticket $<span class="must-label">*</span></p>
-        <el-input></el-input>
+        <el-input v-model="averageTicket"></el-input>
       </div></el-col>
       <el-col :span="6"><div class="grid-content bg-purple">
         <p class="item-title item-style">Max Ticket $<span class="must-label">*</span></p>
-        <el-input></el-input>
+        <el-input v-model="maxTicket"></el-input>
       </div></el-col>
     </el-row>
     <hr>
@@ -62,7 +62,17 @@
 
 <script>
 export default {
-  name: 'Step01',
+  data () {
+    return {
+      ownership: 'Other',
+      establishedDate: '',
+      taxId: '',
+      descriptionBUS: '', // Description Business
+      annualSale: '',
+      averageTicket: '',
+      maxTicket: ''
+    }
+  },
   methods: {
     go () {
       this.$router.push({name: 'step06'})

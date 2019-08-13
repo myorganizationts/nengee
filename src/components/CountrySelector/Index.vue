@@ -1,5 +1,5 @@
 <template>
-  <el-select placeholder="country" filterable style="width: 77.9%" v-model="FormInput.nation">
+  <el-select placeholder="country" filterable style="width: 77.9%" v-model="selectCountry" @change="select">
     <el-option-group v-for="group in country" :key="group.label" :label="group.label">
       <el-option v-for="item in group.options" :key="item.value" :label="item.value" :value="item.value">
         <span style="float: left">{{ item.label }}</span>
@@ -11,10 +11,14 @@
 
 <script>
 export default {
+  props: [
+
+  ],
   name: 'CountrySelector',
   data () {
     return {
-      FormInput: {nation: ''},
+      // FormInput: {nation: ''},
+      selectCountry: '',
       country: [{
         label: '热门国家/Hot',
         options: [{value: 'China', label: '中国'}, {value: 'United States', label: '美国'}]
@@ -213,10 +217,14 @@ export default {
         ]
       }]
     }
+  },
+  methods: {
+    select () {
+      this.$emit('onCountrySelect', this.selectCountry)
+    }
   }
 }
 </script>
-
 <style scoped>
 
 </style>

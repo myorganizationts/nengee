@@ -15,37 +15,41 @@
                 height="500"
             ></iframe>
         </div>
-        <el-checkbox v-model="checked">I acknowledge that I have read and agree to the above</el-checkbox>
+        <el-checkbox v-model="agreeNext">I acknowledge that I have read and agree to the above</el-checkbox>
         <hr />
         <el-button class="previous-btn" @click="back()">Previous</el-button>
-        <el-button type="primary" class="next-btn" @click="go()"
-            >Next</el-button
-        >
+        <el-button type="primary" class="next-btn" @click="go()" :disabled="isDisabled">Next</el-button>
     </div>
 </template>
 
 <script>
 export default {
-    name: "Step01",
-    data() {
-        return {
-          checked: true
-        };
-    },
-    mounted() {
-        this.src.then(pdf => {
-            this.numPages = pdf.numPages;
-        });
-    },
-    methods: {
-        go() {
-            this.$router.push({ name: "step03" });
-        },
-        back() {
-            this.$router.go(-1);
-        }
+  name: 'Step01',
+  data () {
+    return {
+      isDisabled: true,
+      agreeNext: false
     }
-};
+  },
+  computed: {
+  },
+  watch: {
+    // 同意协议，才能下一步
+    agreeNext (newVal, oldVal) {
+      newVal ? this.isDisabled = false : this.isDisabled = true
+    }
+  },
+  mounted () {
+  },
+  methods: {
+    go () {
+      this.$router.push({ name: 'step03' })
+    },
+    back () {
+      this.$router.go(-1)
+    }
+  }
+}
 </script>
 
 <style scoped lang="less">

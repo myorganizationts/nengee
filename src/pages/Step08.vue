@@ -158,16 +158,27 @@
 
 <script>
 export default {
-    name: "Step01",
-    methods: {
-        go() {
-            this.$router.push({ name: "step09" });
-        },
-        back() {
-            this.$router.go(-1);
-        }
+  data () {
+    return {
+      bankStatementURL: '',
+      issuedIdURL: '',
+      interiorCompanyURL: '',
+      exteriorCompanyURL: '',
+      companyLogoURL: '',
+      companyProductURL: '',
+      voidCheckURL: '',
+      businessLicenseURL: ''
     }
-};
+  },
+  methods: {
+    go () {
+      this.$router.push({ name: 'step09' })
+    },
+    back () {
+      this.$router.go(-1)
+    }
+  }
+}
 </script>
 
 <style scoped lang="less">
@@ -212,7 +223,7 @@ hr {
 .el-upload-dragger .el-icon-upload {
     font-size: 50px;
     color: blue;
-    margin: 40px 0 16px; 
+    margin: 40px 0 16px;
     line-height: 50px;
 }
 </style>

@@ -15,26 +15,29 @@
             ></iframe>
         </div>
         <div class="checkBox">
-            <el-checkbox v-model="checked"
+            <el-checkbox v-model="allAgree"
                 >The information on the PDF is all corrected
             </el-checkbox>
         </div>
-        <div class="signatureWall">
+        <div class="signatureWall" v-show="showSignature">
             <el-row>
                 <el-col :span="6"
                     ><div class="grid-content bg-purple">
                         <p class="item-title item-style">
-                            Swift Code<span class="must-label">*</span>
+                          Merchant's Signature<span class="must-label">*</span>
                         </p>
                       </div
                 ></el-col>
             </el-row>
             <span  class="try">Try Again</span>
+          <!--<span  class="try">comfirm</span>-->
         </div>
-        <div class="box"></div>
+        <div class="box" v-show="showSignature">
+
+        </div>
         <hr />
         <el-button class="previous-btn" @click="back()">Previous</el-button>
-        <el-button type="primary" class="next-btn" @click="go()"
+        <el-button type="primary" class="next-btn" @click="go()" :disabled="!showSignature"
             >Next</el-button
         >
     </div>
@@ -42,21 +45,28 @@
 
 <script>
 export default {
-    name: "Step09",
-    data() {
-        return {
-            checked: true
-        };
-    },
-    methods: {
-        go() {
-            this.$router.push({ name: "step10" });
-        },
-        back() {
-            this.$router.go(-1);
-        }
+  data () {
+    return {
+      allAgree: false,
+      showSignature: false,
+      signatureURL: '' // 签名图片传到服务器中保存
     }
-};
+  },
+  watch: {
+    allAgree (curVal) {
+      console.log('allAgree (curVal)', curVal)
+      curVal ? this.showSignature = true : this.showSignature = false
+    }
+  },
+  methods: {
+    go () {
+      this.$router.push({ name: 'step10' })
+    },
+    back () {
+      this.$router.go(-1)
+    }
+  }
+}
 </script>
 
 <style scoped lang="less">
@@ -96,6 +106,7 @@ hr {
   height: 20px;
   line-height: 20px;
   color: #212121;
+  border: 1px #ddd solid;
 }
 .box{
   width: 360px;

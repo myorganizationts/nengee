@@ -5,20 +5,20 @@
    <p style="text-align: center;margin-bottom: 30px">Appendix 2</p>
    <p style="margin: 0;padding: 0">The Service Fee shall be applied at the rate set forth in the table below:</p>
    <p style="">Applicable rate for the Service Fee<span class="must-label">*</span></p>
-   <el-input v-model="input" style="background: #E6E6E6;width: 300px" placeholder="2.9% of the Aggregate Payment Amount"></el-input>
+   <el-input v-model="serviceFee" style="background: #E6E6E6;width: 300px" placeholder="2.9% of the Aggregate Payment Amount"></el-input>
    <p>Do you need Online API (For Ecommerce Only)<span class="must-label">*</span></p>
-   <el-radio-group v-model="radio" class="radio-group">
-     <div class="my-radio"><el-radio :label="3">Yes</el-radio></div>
-     <div class="my-radio"><el-radio :label="6">No</el-radio></div>
+   <el-radio-group v-model="onlineAPI" class="radio-group">
+     <div class="my-radio"><el-radio label="yes">Yes</el-radio></div>
+     <div class="my-radio"><el-radio label="no">No</el-radio></div>
    </el-radio-group>
-   <div v-show="true">
+   <div v-show="needOnlineAPI">
      <p>Online Applicable rate for Service Fee</p>
-     <el-input v-model="input" style="background: #E6E6E6;width: 300px" placeholder="2.9% of the Aggregate Payment Amount"></el-input>
+     <el-input v-model="onlineServiceFee" style="background: #E6E6E6;width: 300px" placeholder="2.9% of the Aggregate Payment Amount"></el-input>
      <p>Website Address(Require for Internet Merchant)</p>
-     <el-input></el-input>
+     <el-input v-model="webSite"></el-input>
    </div>
    <p>Settlement Fee</p>
-   <el-input v-model="input" style="background: #E6E6E6;width: 300px" placeholder="$0.30 Per Batch"></el-input>
+   <el-input v-model="settlementFee" style="background: #E6E6E6;width: 300px" placeholder="$0.30 Per Batch"></el-input>
    <div class="note">
      <el-row :gutter="20">
        <el-col :span="1"><div style="">Note:</div></el-col>
@@ -40,7 +40,21 @@
 
 <script>
 export default {
-  name: 'Step01',
+  data () {
+    return {
+      serviceFee: '',
+      onlineAPI: 'yes',
+      needOnlineAPI: true,
+      onlineServiceFee: '',
+      webSite: '',
+      settlementFee: ''
+    }
+  },
+  watch: {
+    onlineAPI (curVal) {
+      curVal === 'yes' ? this.needOnlineAPI = true : this.needOnlineAPI = false
+    }
+  },
   methods: {
     go () {
       this.$router.push({name: 'step04'})

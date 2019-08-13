@@ -6,105 +6,107 @@
     <el-row :gutter="20">
       <el-col :span="12"><div class="grid-content bg-purple">
         <p class="item-title">Merchants DBA Name(Doing Business As)/Outlet Name<span class="must-label">*</span></p>
-        <el-input></el-input>
+        <el-input v-model="dbaName"></el-input>
       </div></el-col>
       <el-col :span="12"><div class="grid-content bg-purple">
         <p class="item-title">Merchant's Legal Name<span class="must-label">*</span></p>
-        <el-input></el-input>
+        <el-input v-model="legalName"></el-input>
       </div></el-col>
     </el-row>
     <el-row :gutter="20">
       <el-col :span="12"><div class="grid-content bg-purple">
         <p class="item-title">Street Address</p>
-        <el-input></el-input>
+        <el-input v-model="streetAddrBUS"></el-input>
       </div></el-col>
     </el-row>
     <el-row :gutter="20">
       <el-col :span="12"><div class="grid-content bg-purple">
         <p class="item-title">Address Line2</p>
-        <el-input></el-input>
+        <el-input v-model="addrLineBUS"></el-input>
       </div></el-col>
     </el-row>
     <el-row :gutter="20">
       <el-col :span="12"><div class="grid-content bg-purple">
         <p class="item-title">City</p>
-        <el-input></el-input>
+        <el-input v-model="cityBUS"></el-input>
       </div></el-col>
       <el-col :span="12"><div class="grid-content bg-purple">
         <p class="item-title">State/Province/Region</p>
-        <el-input></el-input>
+        <el-input v-model="stateBUS"></el-input>
       </div></el-col>
     </el-row>
     <el-row :gutter="20">
       <el-col :span="12"><div class="grid-content bg-purple">
         <p class="item-title">ZIP/Postal Code</p>
-        <el-input></el-input>
+        <el-input v-model="zipBUS"></el-input>
       </div></el-col>
       <el-col :span="12"><div class="grid-content bg-purple">
         <p class="item-title">Country</p>
-        <el-input></el-input>
+        <el-input v-model="countryBUS"></el-input>
       </div></el-col>
     </el-row>
     <div class="refundNotice">Note: for statements & chargeback notifications - if different than physical</div>
     <el-row :gutter="20">
       <el-col :span="12"><div class="grid-content bg-purple">
         <span class="item-title">Mailing Address</span>
-        <el-checkbox v-model="checked">Mailing Address Same</el-checkbox>
+        <el-checkbox v-model="sameAddr">Mailing Address Same</el-checkbox>
       </div></el-col>
     </el-row>
-    <el-row :gutter="20">
-      <el-col :span="12"><div class="grid-content bg-purple">
-        <p class="item-title">Street Address</p>
-        <el-input></el-input>
-      </div></el-col>
-    </el-row>
-    <el-row :gutter="20">
-      <el-col :span="12"><div class="grid-content bg-purple">
-        <p class="item-title">Address Line2</p>
-        <el-input></el-input>
-      </div></el-col>
-    </el-row>
-    <el-row :gutter="20">
-      <el-col :span="12"><div class="grid-content bg-purple">
-        <p class="item-title">City</p>
-        <el-input></el-input>
-      </div></el-col>
-      <el-col :span="12"><div class="grid-content bg-purple">
-        <p class="item-title">State/Province/Region</p>
-        <el-input></el-input>
-      </div></el-col>
-    </el-row>
-    <el-row :gutter="20">
-      <el-col :span="12"><div class="grid-content bg-purple">
-        <p class="item-title">ZIP/Postal Code</p>
-        <el-input></el-input>
-      </div></el-col>
-      <el-col :span="12"><div class="grid-content bg-purple">
-        <p class="item-title">Country</p>
-        <el-input></el-input>
-      </div></el-col>
-    </el-row>
-    <div class="refundNotice">Note: for statements & chargeback notifications - if different than physical</div>
+    <div v-show="!sameAddr">
+      <el-row :gutter="20">
+        <el-col :span="12"><div class="grid-content bg-purple">
+          <p class="item-title">Street Address</p>
+          <el-input v-model="streetAddrMail"></el-input>
+        </div></el-col>
+      </el-row>
+      <el-row :gutter="20">
+        <el-col :span="12"><div class="grid-content bg-purple">
+          <p class="item-title">Address Line2</p>
+          <el-input v-model="addrLineMail"></el-input>
+        </div></el-col>
+      </el-row>
+      <el-row :gutter="20">
+        <el-col :span="12"><div class="grid-content bg-purple">
+          <p class="item-title">City</p>
+          <el-input v-model="cityMail"></el-input>
+        </div></el-col>
+        <el-col :span="12"><div class="grid-content bg-purple">
+          <p class="item-title">State/Province/Region</p>
+          <el-input v-model="stateMail"></el-input>
+        </div></el-col>
+      </el-row>
+      <el-row :gutter="20">
+        <el-col :span="12"><div class="grid-content bg-purple">
+          <p class="item-title">ZIP/Postal Code</p>
+          <el-input v-model="zipMail"></el-input>
+        </div></el-col>
+        <el-col :span="12"><div class="grid-content bg-purple">
+          <p class="item-title">Country</p>
+          <el-input v-model="countryMail"></el-input>
+        </div></el-col>
+      </el-row>
+      <div class="refundNotice">Note: for statements & chargeback notifications - if different than physical</div>
+    </div>
     <el-row :gutter="20">
       <el-col :span="12"><div class="grid-content bg-purple">
         <p class="item-title">Contact Name at this Address<span class="must-label">*</span></p>
-        <el-input></el-input>
+        <el-input v-model="contactName"></el-input>
       </div></el-col>
       <el-col :span="12"><div class="grid-content bg-purple">
         <p class="item-title">Customer Service Phone Number<span class="must-label">*</span></p>
-        <el-input></el-input>
+        <el-input v-model="phone"></el-input>
       </div></el-col>
     </el-row>
     <el-row :gutter="20">
       <el-col :span="12"><div class="grid-content bg-purple">
         <p class="item-title">Fax Number</p>
-        <el-input></el-input>
+        <el-input v-model="fax"></el-input>
       </div></el-col>
     </el-row>
     <el-row :gutter="20">
       <el-col :span="12"><div class="grid-content bg-purple">
         <p class="item-title">Email Address<span class="must-label">*</span></p>
-        <el-input></el-input>
+        <el-input v-model="email"></el-input>
       </div></el-col>
     </el-row>
     <hr>
@@ -115,7 +117,29 @@
 
 <script>
 export default {
-  name: 'Step04',
+  data () {
+    return {
+      dbaName: '',
+      legalName: '',
+      streetAddrBUS: '', // BUS：business info的地址信息
+      addrLineBUS: '',
+      cityBUS: '',
+      stateBUS: '',
+      zipBUS: '',
+      countryBUS: '',
+      sameAddr: true,
+      streetAddrMail: '', // mail：mailing address info
+      addrLineMail: '',
+      cityMail: '',
+      stateMail: '',
+      zipMail: '',
+      countryMail: '',
+      contactName: '', // 联系人信息
+      phone: '',
+      fax: '',
+      email: ''
+    }
+  },
   methods: {
     go () {
       this.$router.push({name: 'step05'})

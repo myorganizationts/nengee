@@ -8,6 +8,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import locale from 'element-ui/lib/locale/lang/en'
 // import Print from 'vue-print-nb'
 import htmlToPdf from '@/components/utils/htmlToPdf' // 导出pdf的实现
+import store from './store'
 
 Vue.use(ElementUI, {locale})
 Vue.use(htmlToPdf)
@@ -18,6 +19,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

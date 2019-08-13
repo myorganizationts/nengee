@@ -6,54 +6,54 @@
     <el-row :gutter="20">
       <el-col :span="12"><div class="grid-content bg-purple">
         <p class="item-title item-style">Bank Name<span class="must-label">*</span></p>
-        <el-input></el-input>
+        <el-input v-model="bankName"></el-input>
       </div></el-col>
     </el-row>
     <el-row :gutter="20">
       <el-col :span="12"><div class="grid-content bg-purple">
         <p class="item-title item-style">Bank Address<span class="must-label">*</span></p>
-        <el-input></el-input>
+        <el-input v-model="bankAddr"></el-input>
       </div></el-col>
     </el-row>
     <el-row :gutter="20">
       <el-col :span="12"><div class="grid-content bg-purple">
         <p class="item-title item-style">Address Line 2</p>
-        <el-input></el-input>
+        <el-input v-model="bankAddrLine"></el-input>
       </div></el-col>
     </el-row>
     <el-row :gutter="20">
       <el-col :span="12"><div class="grid-content bg-purple">
         <p class="item-title item-style">City</p>
-        <el-input></el-input>
+        <el-input v-model="bankCity"></el-input>
       </div></el-col>
       <el-col :span="12"><div class="grid-content bg-purple">
         <p class="item-title item-style">State/Province/Region</p>
-        <el-input></el-input>
+        <el-input v-model="bankState"></el-input>
       </div></el-col>
     </el-row>
     <el-row :gutter="20">
       <el-col :span="12"><div class="grid-content bg-purple">
         <p class="item-title item-style">ZIP/Postal Code</p>
-        <el-input></el-input>
+        <el-input v-model="bankZip"></el-input>
       </div></el-col>
       <el-col :span="12"><div class="grid-content bg-purple">
         <p class="item-title item-style">Country</p>
-        <el-input></el-input>
+        <el-input v-model="bankCountry"></el-input>
       </div></el-col>
     </el-row>
     <div class="message">Note: for statements & chargeback notifications - if different than physical</div>
     <el-row :gutter="20">
       <el-col :span="6"><div class="grid-content bg-purple">
         <p class="item-title item-style">Account Number<span class="must-label">*</span></p>
-        <el-input></el-input>
+        <el-input v-model="accountNum"></el-input>
       </div></el-col>
       <el-col :span="6"><div class="grid-content bg-purple">
         <p class="item-title item-style">Routing Number<span class="must-label">*</span></p>
-        <el-input></el-input>
+        <el-input v-model="routingNum"></el-input>
       </div></el-col>
       <el-col :span="6"><div class="grid-content bg-purple">
         <p class="item-title item-style">Swift Code<span class="must-label">*</span></p>
-        <el-input></el-input>
+        <el-input v-model="swiftCode"></el-input>
       </div></el-col>
     </el-row>
     <hr>
@@ -64,7 +64,20 @@
 
 <script>
 export default {
-  name: 'Step01',
+  data () {
+    return {
+      bankName: '',
+      bankAddr: '',
+      bankAddrLine: '',
+      bankCity: '',
+      bankState: '',
+      bankZip: '',
+      bankCountry: '',
+      accountNum: '',
+      routingNum: '',
+      swiftCode: ''
+    }
+  },
   methods: {
     go () {
       this.$router.push({name: 'step08'})
