@@ -15,13 +15,21 @@
     </el-row>
     <el-row :gutter="20">
       <el-col :span="12"><div class="grid-content bg-purple">
-        <p class="item-title">Street Address</p>
+        <p class="item-title">Physical Street Address (No P.O. Box)</p>
+        <el-input v-model="streetAddrBUS"></el-input>
+      </div></el-col>
+       <el-col :span="12"><div class="grid-content bg-purple">
+        <p class="item-title">Contact Name at this Address</p>
         <el-input v-model="streetAddrBUS"></el-input>
       </div></el-col>
     </el-row>
     <el-row :gutter="20">
       <el-col :span="12"><div class="grid-content bg-purple">
         <p class="item-title">Address Line2</p>
+        <el-input v-model="addrLineBUS"></el-input>
+      </div></el-col>
+       <el-col :span="12"><div class="grid-content bg-purple">
+        <p class="item-title">Telephone Number</p>
         <el-input v-model="addrLineBUS"></el-input>
       </div></el-col>
     </el-row>

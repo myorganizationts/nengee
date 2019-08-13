@@ -1,5 +1,5 @@
 <template>
-  <div class="my-header">
+  <div class="my-header" v-if="isHeader">
     <div class="line"></div>
     <el-row :gutter="20">
       <el-col :span="5"><div class="logo"><img src="../assets/imgs/yuansfer_LOGO.png" alt=""></div></el-col>
@@ -53,7 +53,7 @@ export default {
   methods: {
     handleSelect (key, keyPath) {
       console.log(key, keyPath)
-    }
+    },
   }
 }
 </script>

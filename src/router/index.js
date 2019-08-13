@@ -84,7 +84,7 @@ const routers = [
   {
     path: '/pdf',
     name: 'pdf',
-    component:pdf
+    component: pdf
   }]
 export default new Router({
   routes: routers

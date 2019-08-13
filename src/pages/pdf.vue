@@ -295,19 +295,71 @@
                     <ul class="describe">
                         <li>
                             <p>Complete description of business and goods or services sold:</p>
-                            <span></span>
+                            <span>123</span>
                         </li>
                         <li>
-                            <span></span>
+                            <span>123</span>
                         </li>
                         <li>
-                            <ul class="money">
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
+                            <div class="money">
+                                <p class="title">Annual Sales:</p>
+                                <span>$1</span>
+                            </div>
+                            <div class="money">
+                                <p class="title">Average Ticket:</p>
+                                <span>$2</span>
+                            </div>
+                            <div class="money">
+                                <p class="title">Max Ticket:</p>
+                                <span>$3</span>
+                            </div>
                         </li>
                     </ul>
+                </dl>
+                <dl class="formHead">
+                    <dt>OWNER / OFFICER INFORMATION</dt>
+                    <div class="personnelInfo">
+                        <ul class="personnelInfo_data">
+                            <li>
+                                <p>Owner/Officer Name (#1)</p>
+                                <span></span>
+                            </li>
+                            <li>
+                                <p>Owner/Officer Name</p>
+                                <span></span>
+                            </li>
+                            <li>
+                                <p>Owner/Officer Name</p>
+                                <span></span>
+                            </li>
+                            <li>
+                                <p>Owner/Officer Name</p>
+                                <span></span>
+                            </li>
+                        </ul>
+                        <ul class="personnelInfo_data">
+                            <li>
+                                <p>Owner/Officer Name (#1)</p>
+                                <span></span>
+                            </li>
+                            <li>
+                                <p>Owner/Officer Name</p>
+                                <span></span>
+                            </li>
+                            <li>
+                                <p>Owner/Officer Name</p>
+                                <span></span>
+                            </li>
+                            <li>
+                                <p>Owner/Officer Name</p>
+                                <span></span>
+                            </li>
+                        </ul>
+                    </div>
+                </dl>
+                <dl class="formHead">
+                    <dt>BANK INFORMATION (Complete Section and Attach Voided Check or Bank Letter)</dt>
+                    <div class="bankInfo"></div>
                 </dl>
             </div>
         </div>
@@ -315,19 +367,19 @@
 </template>
 <script>
 export default {
-    name: "pdf",
-    data() {
-        return {
-            checked: true,
-            checked1: true,
-            formLabelAlign: {
-                name: "",
-                region: "",
-                type: ""
-            }
-        };
+  name: 'pdf',
+  data () {
+    return {
+      checked: true,
+      checked1: true,
+      formLabelAlign: {
+        name: '',
+        region: '',
+        type: ''
+      }
     }
-};
+  },
+}
 </script>
 <style>
 ul,
@@ -342,7 +394,6 @@ li {
     height: 1000px;
     margin: auto;
     padding-top: 23px;
-    background: #58bc58;
 }
 /* 头部部分 */
 .head {
@@ -389,9 +440,9 @@ li {
 }
 .head_r {
     float: left;
-    width: 540px;
+    width: 546px;
     height: 130px;
-    border: 2px solid black;
+    border: 2px solid #000000;
     margin-top: 15px;
 }
 .head_r h3 {
@@ -415,7 +466,6 @@ li {
 .main {
     width: 100%;
     height: 800px;
-    background: yellow;
 }
 .main-title {
     width: 100%;
@@ -503,14 +553,17 @@ li {
 .segmentation:nth-child(odd) {
     border-right: 1px solid rgba(0, 0, 0, 1);
 }
+/* 商人形象部分样式 */
 .businessmanImage {
     width: 100%;
     border-bottom: 1px solid rgba(0, 0, 0, 1);
     height: 80px;
+    box-sizing: border-box;
 }
 .businessmanImage_l {
     width: 60%;
     float: left;
+    box-sizing: border-box;
     height: 100%;
     border-right: 1px solid rgba(0, 0, 0, 1);
 }
@@ -523,7 +576,8 @@ li {
     float: left;
     height: 20px;
     line-height: 20px;
-    width: 25%;
+    width: 23%;
+    margin-left: 10px;
 }
 .businessmanImage_l_b {
     overflow: hidden;
@@ -557,6 +611,7 @@ li {
 }
 .describe li{
     height: 30px;
+    width: 100%;
     box-sizing: border-box;
     border-bottom: 1px solid rgba(0, 0, 0, 1);
 }
@@ -567,7 +622,51 @@ li {
     font-size: 12px;
     height: 30px;
     line-height: 30px;
-    width: 100%;
+    display: inline-block;
+    margin-left: 10px;
 }
-/* 不同样式的td */
+.describe li span{
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    margin-left: 10px;
+}
+.money {
+    overflow: hidden;
+    height: 30px;
+    width: 33.3%;
+    float: left;
+}
+.title{
+    float: left;
+}
+/* 人员信息部分 */
+.personnelInfo{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.personnelInfo_data{
+    height: 50px;
+    border-bottom: 1px solid #000000;
+}
+.personnelInfo_data li{
+    float: left;
+    padding-top: 5px;
+    padding-left: 5px;
+    font-size: 12px;
+}
+.personnelInfo_data li:nth-child(1){
+    width: 38%;
+}
+.personnelInfo_data li:nth-child(2),
+.personnelInfo_data li:nth-child(3),
+.personnelInfo_data li:nth-child(4)
+{
+    width: 18%;
+}
+/* 银行资料 */
+.bankInfo{
+    
+}
 </style>
