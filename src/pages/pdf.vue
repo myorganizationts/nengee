@@ -587,19 +587,19 @@
 </template>
 <script>
 export default {
-    name: "pdf",
-    data() {
-        return {
-            checked: true,
-            checked1: true,
-            formLabelAlign: {
-                name: "",
-                region: "",
-                type: ""
-            }
-        };
+  name: 'pdf',
+  data () {
+    return {
+      checked: true,
+      checked1: true,
+      formLabelAlign: {
+        name: '',
+        region: '',
+        type: ''
+      }
     }
-};
+  }
+}
 </script>
 <style>
 ul,
