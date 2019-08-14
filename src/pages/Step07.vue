@@ -38,7 +38,7 @@
       </div></el-col>
       <el-col :span="12"><div class="grid-content bg-purple">
         <p class="item-title item-style">Country</p>
-        <el-input v-model="bankCountry"></el-input>
+        <country-selector></country-selector>
       </div></el-col>
     </el-row>
     <div class="message">Note: for statements & chargeback notifications - if different than physical</div>
@@ -63,7 +63,9 @@
 </template>
 
 <script>
+import CountrySelector from '../components/CountrySelector/Index'
 export default {
+  components: {CountrySelector},
   data () {
     return {
       bankName: '',
