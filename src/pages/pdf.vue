@@ -247,37 +247,37 @@
                                 </li>
                                 <li>
                                     <el-checkbox v-model="checked"
-                                        >备选项</el-checkbox
+                                        >Sole Proprietor</el-checkbox
                                     >
                                 </li>
                                 <li>
                                     <el-checkbox v-model="checked"
-                                        >备选项</el-checkbox
+                                        >Partnership</el-checkbox
                                     >
                                 </li>
                                 <li>
                                     <el-checkbox v-model="checked"
-                                        >备选项</el-checkbox
+                                        >Professional Assoc.</el-checkbox
                                     >
                                 </li>
                                 <li>
                                     <el-checkbox v-model="checked"
-                                        >备选项</el-checkbox
+                                        >Corporation</el-checkbox
                                     >
                                 </li>
                                 <li>
                                     <el-checkbox v-model="checked"
-                                        >备选项</el-checkbox
+                                        >Tax Exempt Org</el-checkbox
                                     >
                                 </li>
                                 <li>
                                     <el-checkbox v-model="checked"
-                                        >备选项</el-checkbox
+                                        >Tax Exempt Org</el-checkbox
                                     >
                                 </li>
                                 <li>
                                     <el-checkbox v-model="checked"
-                                        >备选项</el-checkbox
+                                        >Other:</el-checkbox
                                     >
                                 </li>
                             </ul>
@@ -294,7 +294,10 @@
                     </div>
                     <ul class="describe">
                         <li>
-                            <p>Complete description of business and goods or services sold:</p>
+                            <p>
+                                Complete description of business and goods or
+                                services sold:
+                            </p>
                             <span>123</span>
                         </li>
                         <li>
@@ -325,41 +328,258 @@
                                 <span></span>
                             </li>
                             <li>
-                                <p>Owner/Officer Name</p>
+                                <p>Title</p>
                                 <span></span>
                             </li>
                             <li>
-                                <p>Owner/Officer Name</p>
+                                <p>Date of Birth:</p>
                                 <span></span>
                             </li>
                             <li>
-                                <p>Owner/Officer Name</p>
+                                <p>Contact Number:</p>
                                 <span></span>
                             </li>
                         </ul>
                         <ul class="personnelInfo_data">
                             <li>
-                                <p>Owner/Officer Name (#1)</p>
+                                <p>Owner/Officer Name (#2)</p>
                                 <span></span>
                             </li>
                             <li>
-                                <p>Owner/Officer Name</p>
+                                <p>Title</p>
                                 <span></span>
                             </li>
                             <li>
-                                <p>Owner/Officer Name</p>
+                                <p>Date of Birth:</p>
                                 <span></span>
                             </li>
                             <li>
-                                <p>Owner/Officer Name</p>
+                                <p>Contact Number:</p>
                                 <span></span>
                             </li>
                         </ul>
                     </div>
                 </dl>
                 <dl class="formHead">
-                    <dt>BANK INFORMATION (Complete Section and Attach Voided Check or Bank Letter)</dt>
-                    <div class="bankInfo"></div>
+                    <dt>
+                        BANK INFORMATION (Complete Section and Attach Voided
+                        Check or Bank Letter)
+                    </dt>
+                    <div class="bankInfo">
+                        <ul class="bankInfo_data">
+                            <li>
+                                <p>Bank Name:</p>
+                                <span></span>
+                            </li>
+                            <li>
+                                <p>Account Number:</p>
+                                <span></span>
+                            </li>
+                            <li>
+                                <p>Routing Number:</p>
+                                <span></span>
+                            </li>
+                            <li>
+                                <p>Swift Code:</p>
+                                <span></span>
+                            </li>
+                        </ul>
+                        <ul class="bankInfo_data bankInfo_data_1">
+                            <li>
+                                <p>Bank Address:</p>
+                                <span></span>
+                            </li>
+                            <li>
+                                <p>City:</p>
+                                <span></span>
+                            </li>
+                            <li>
+                                <p>State:</p>
+                                <span></span>
+                            </li>
+                            <li>
+                                <p>Zip Code:</p>
+                                <span></span>
+                            </li>
+                        </ul>
+                    </div>
+                </dl>
+                <dl class="formHead">
+                    <dt>SERVICES AND FEE SCHEDULE</dt>
+                    <div class="serviceFeeList">
+                        <ul class="serviceFeeList_data">
+                            <li>
+                                <p>Processing Rate: AliPay Online:</p>
+                                <span></span>
+                            </li>
+                            <li>
+                                <p>AliPay Online:</p>
+                                <span></span>
+                            </li>
+                            <li>
+                                <p>AliPay Offline:</p>
+                                <span></span>
+                            </li>
+                            <li>
+                                <p>WeChatPay Online:</p>
+                                <span></span>
+                            </li>
+                            <li>
+                                <p>WeChatPay Offline:</p>
+                                <span></span>
+                            </li>
+                            <li>
+                                <p>UnionPay Online:</p>
+                                <span></span>
+                            </li>
+                        </ul>
+                        <ul class="serviceFeeList_data">
+                            <li>
+                                <p>Statement Fee:</p>
+                                <span>$0.00</span>
+                            </li>
+                            <li>
+                                <p>Monthly Minimum Fee:</p>
+                                <span>$0.00</span>
+                            </li>
+                            <li>
+                                <p>Settlement Fee:</p>
+                                <span>$0.30</span>
+                            </li>
+                            <li>
+                                <p>Minimum Withdrawal:</p>
+                                <span>$1.00</span>
+                            </li>
+                            <li class="optionBox">
+                                <p>Settlement Period:</p>
+                                <el-checkbox v-model="checked"
+                                    >备选项</el-checkbox
+                                >
+                                <el-checkbox v-model="checked"
+                                    >备选项</el-checkbox
+                                >
+                            </li>
+                            <li>
+                                <p>Authorization Fee</p>
+                                <span>$0.00</span>
+                            </li>
+                        </ul>
+                    </div>
+                </dl>
+                <dl class="formHead">
+                    <dt>
+                        ACCEPTANCE OF TERMS & CONDITIONS / MERCHANT
+                        AUTHORIZATION
+                    </dt>
+                    <div class="protocol">
+                        <p>
+                            This Services Agreement is between Yuanex, Inc.
+                            (“Yuansfer”) and the Merchant named above. Yuanex,
+                            Inc., is a licensed sales partners of China
+                            UnionPay, Alipay, and Wechat Pay. A copy of the
+                            Services Terms and Conditions has been provided to
+                            you. Please sign below to signify that you have
+                            received a copy of the Services Terms and Conditions
+                            and that you agreeto all terms and conditions
+                            contained therein. If this Merchant Application is
+                            accepted for China UnionPay card services, Alipay
+                            payment services, and / or Wechat Pay services,
+                            Merchant Application and the Services Terms and
+                            agrees to comply with the Merchant Coditions as may
+                            be modified or amended in the future. IF THE
+                            MERCHANT SUBMITS A TRANSACTION TO YUANEX, INC.,
+                            HEREUNDER, MERCHANT WILL BE DEEMED TO HAVE ACCEPTED
+                            THE YUANEX SERVICES TERMS AND CONDITIONS.
+                        </p>
+                        <p>
+                            By your signature below on behalf of Merchant, you
+                            certify that all information provided in this
+                            Merchant Application is true and accurate and you
+                            authorize Yuansfer, INC., to : (a) initiate debit
+                            entries to Merchant’s checking account(s) in
+                            accordance with the Card Services Terms and
+                            Conditions, (b) initiate debit entries to Merchant’s
+                            checking account(s) for the fees described herein,
+                            and (c) order a consumer credit report on the
+                            Merchant.
+                        </p>
+                    </div>
+                    <div class="protocolTitle">
+                        <ul>
+                            <li>
+                                <p>Merchant’s Signature:</p>
+                                <span>1</span>
+                            </li>
+                            <li>
+                                <p>Name (printed):</p>
+                                <span>2</span>
+                            </li>
+                            <li>
+                                <p>title:</p>
+                                <span>3</span>
+                            </li>
+                             <li>
+                                <p>data:</p>
+                                <span>4</span>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <p>Merchant’s Signature:</p>
+                                <span>1</span>
+                            </li>
+                            <li>
+                                <p>Name (printed):</p>
+                                <span>2</span>
+                            </li>
+                            <li>
+                                <p>title:</p>
+                                <span>3</span>
+                            </li>
+                             <li>
+                                <p>data:</p>
+                                <span>4</span>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <p>Signing for Yuansfer, Inc.:</p>
+                                <span>1</span>
+                            </li>
+                            <li>
+                                <p>Name (printed):</p>
+                                <span>2</span>
+                            </li>
+                            <li>
+                                <p>title:</p>
+                                <span>3</span>
+                            </li>
+                             <li>
+                                <p>data:</p>
+                                <span>4</span>
+                            </li>
+                        </ul>
+                    </div>
+                </dl>
+                <dl class="formHead">
+                    <dt>PRODUCTS</dt>
+                    <div class="product">
+                        <ul>
+                            <li>
+                                <p>Gateway(s) Ordered:</p>
+                                <span></span>
+                            </li>
+                            <li>
+                                 <el-checkbox v-model="checked">AliPay</el-checkbox>
+                            </li>
+                            <li>
+                                 <el-checkbox v-model="checked">WeChatPay</el-checkbox>
+                            </li>
+                            <li>
+                                 <el-checkbox v-model="checked">UnionPay</el-checkbox>
+                            </li>
+                        </ul>
+                    </div>
                 </dl>
             </div>
         </div>
@@ -367,19 +587,19 @@
 </template>
 <script>
 export default {
-  name: 'pdf',
-  data () {
-    return {
-      checked: true,
-      checked1: true,
-      formLabelAlign: {
-        name: '',
-        region: '',
-        type: ''
-      }
+    name: "pdf",
+    data() {
+        return {
+            checked: true,
+            checked1: true,
+            formLabelAlign: {
+                name: "",
+                region: "",
+                type: ""
+            }
+        };
     }
-  },
-}
+};
 </script>
 <style>
 ul,
@@ -465,7 +685,7 @@ li {
 /* 内容表达部分 */
 .main {
     width: 100%;
-    height: 800px;
+    margin-bottom: 50px;
 }
 .main-title {
     width: 100%;
@@ -488,7 +708,6 @@ li {
 .formInformation {
     width: 100%;
     box-sizing: border-box;
-    height: 1000px;
     border: 2px solid rgba(0, 0, 0, 1);
 }
 .formHead {
@@ -561,7 +780,7 @@ li {
     box-sizing: border-box;
 }
 .businessmanImage_l {
-    width: 60%;
+    width: 67%;
     float: left;
     box-sizing: border-box;
     height: 100%;
@@ -603,29 +822,29 @@ li {
 .businessmanImage_r {
     float: left;
     height: 100%;
-    width: 40%;
+    width: 33%;
 }
-.describe{
+.describe {
     height: 90px;
     width: 100%;
 }
-.describe li{
+.describe li {
     height: 30px;
     width: 100%;
     box-sizing: border-box;
     border-bottom: 1px solid rgba(0, 0, 0, 1);
 }
-.describe li:nth-child(3){
+.describe li:nth-child(3) {
     border-bottom: none;
 }
-.describe li P{
+.describe li p {
     font-size: 12px;
     height: 30px;
     line-height: 30px;
     display: inline-block;
     margin-left: 10px;
 }
-.describe li span{
+.describe li span {
     font-size: 12px;
     height: 30px;
     line-height: 30px;
@@ -638,35 +857,117 @@ li {
     width: 33.3%;
     float: left;
 }
-.title{
+.title {
     float: left;
 }
 /* 人员信息部分 */
-.personnelInfo{
+.personnelInfo {
     width: 100%;
     margin-bottom: 20px;
 }
-.personnelInfo_data{
+.personnelInfo_data {
     height: 50px;
     border-bottom: 1px solid #000000;
 }
-.personnelInfo_data li{
+.personnelInfo_data li {
     float: left;
     padding-top: 5px;
     padding-left: 5px;
     font-size: 12px;
 }
-.personnelInfo_data li:nth-child(1){
+.personnelInfo_data li:nth-child(1) {
     width: 38%;
 }
 .personnelInfo_data li:nth-child(2),
 .personnelInfo_data li:nth-child(3),
-.personnelInfo_data li:nth-child(4)
-{
+.personnelInfo_data li:nth-child(4) {
     width: 18%;
 }
 /* 银行资料 */
-.bankInfo{
-    
+.bankInfo {
+}
+.bankInfo_data {
+    height: 50px;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 1);
+}
+.bankInfo_data li {
+    float: left;
+    margin-left: 5px;
+    font-size: 12px;
+}
+.bankInfo_data li:nth-child(1) {
+    width: 35%;
+}
+.bankInfo_data li:nth-child(2),
+.bankInfo_data li:nth-child(3),
+.bankInfo_data li:nth-child(4) {
+    width: 20%;
+}
+.bankInfo_data_1 {
+    height: 30px;
+}
+/* 收费列表 */
+.serviceFeeList_data {
+    height: 50px;
+    border-bottom: 1px solid #000000;
+}
+.serviceFeeList_data li {
+    float: left;
+    width: 23%;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+.serviceFeeList_data li p {
+    display: inline-block;
+}
+.optionBox {
+    width: 40% !important;
+}
+/* 协议部分 */
+.protocol {
+    margin-left: 10px;
+    margin-bottom: 60px;
+}
+.protocol p {
+    font-size: 12px;
+    line-height: 20px;
+}
+.protocol p:nth-child(1) {
+    border-bottom: 1px solid rgba(0, 0, 0, 1);
+    margin-bottom: 5px;
+}
+.protocolTitle{
+    margin-left: 10px;
+}
+.protocolTitle ul{
+    height: 60px;
+    width: 100%;
+}
+.protocolTitle ul li{
+    height: 42px;
+    width: 22%;
+    float: left;
+    margin-right: 10px;
+    border-bottom: 1px solid rgba(192,192,192,1);
+    font-size: 12px;
+}
+.protocolTitle ul li p{
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+.product ul{
+    height: 40px;
+}
+.product ul li{
+    float: left;
+    width: 18%;
+    margin-left: 10px;
+    line-height: 40px;
+    font-size: 13px;
+}
+.product ul li:nth-child(1){
+    width: 35% !important;
 }
 </style>
