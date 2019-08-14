@@ -5125,7 +5125,7 @@ var defaultOptions = {
     kind: OptionKind.VIEWER
   },
   defaultUrl: {
-    value: 'compressed.tracemonkey-pldi-09.pdf',
+    value: 'agreement.pdf',
     kind: OptionKind.VIEWER
   },
   defaultZoomValue: {
@@ -5958,7 +5958,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var DEFAULT_FIELD_CONTENT = './compressed.tracemonkey-pldi-09.pdf';
+var DEFAULT_FIELD_CONTENT = './agreement.pdf';
 var NON_METRIC_LOCALES = ['en-us', 'en-lr', 'my'];
 var US_PAGE_NAMES = {
   '8.5x11': 'Letter',
