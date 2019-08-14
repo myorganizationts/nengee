@@ -7,9 +7,15 @@
       <country-selector @onCountrySelect="countrySelect($event)"></country-selector>
       <p>Do you have a referral code?<span class="must-label">*</span></p>
       <el-radio-group v-model="codeRadio" class="radio-group">
-        <div class="my-radio"><el-radio label="yes">Yes  <el-input v-model="referralCode" v-show="hasCode" class="inp-code" size="mini" placeholder="referral code"></el-input></el-radio></div>
+        <div class="my-radio"><el-radio label="yes">Yes</el-radio></div>
         <div class="my-radio"><el-radio label="no">No</el-radio></div>
       </el-radio-group>
+      <el-row :gutter="20" v-show="hasCode">
+        <el-col :span="12">
+          <div style="">Code<span class="must-label">*</span></div>
+          <el-input v-model="referralCode"  class="inp-code" size="mini" placeholder="referral code"></el-input>
+        </el-col>
+      </el-row>
       <hr>
       <el-button type="primary"  class="next-btn" @click="go()">Next</el-button>
     </div>
@@ -25,7 +31,7 @@ export default {
     return {
       codeRadio: 'no',
       hasCode: false,
-      referralCode: '111111',
+      referralCode: '',
       country: null
     }
   },
@@ -34,7 +40,7 @@ export default {
   mounted () {
   },
   watch: {
-    CodeRadio (curVal) {
+    codeRadio (curVal) {
       console.log('hasCode=>curVal', curVal)
       curVal === 'yes' ? this.hasCode = true : this.hasCode = false
     }
@@ -55,13 +61,14 @@ export default {
   @import '../assets/css/common.css';
   .inp-code {
     width: 100px;
-    margin-left: 20px;
+    /*margin-left: 20px;*/
+    margin: 5px 0 15px 0;
   }
-  .my-step-title{
-    padding-top: 68px;
-    margin: 0;
-    margin-bottom: 57px;
-  }
+  /*.my-step-title{*/
+    /*padding-top: 68px;*/
+    /*margin: 0;*/
+    /*margin-bottom: 57px;*/
+  /*}*/
   .el-progress{
     margin-bottom: 37px;
   }
