@@ -15,56 +15,100 @@
         ></iframe>
     </div>
     <div>
-      <el-checkbox v-model="allAgree" class="checkBox"
+      <el-checkbox v-model="stepNine.allAgree" class="checkBox"
       >The information on the PDF is all corrected
       </el-checkbox>
     </div>
-    <div class="signatureWall" v-show="showSignature">
-      <div>
-        <span class="item-title item-style">Merchant's Signature<span class="must-label">*</span></span>
-        <span style="padding-left: 205px;font-size: 13px;color: #212121;"><el-button size="small">Try Again</el-button></span>
-      </div>
-      <div class="box" v-show="showSignature" id="signature"></div>
-      <div style="padding-top: 10px;padding-left: 290px"><el-button size="small">Confirm Signture</el-button></div>
-      <el-row :gutter="20" class="signature-btm" style="width: 100%">
-        <el-col :span="8">
-        <p class="item-title">Name<span class="must-label">*</span></p>
-        <el-input v-model="name" class="inp"></el-input></el-col>
-        <el-col :span="8">
-        <p class="item-title">Title<span class="must-label">*</span></p>
-        <el-input v-model="title" class="inp"></el-input></el-col>
-        <el-col :span="8">
-        <p class="item-title">Date<span class="must-label">*</span></p>
-        <el-input v-model="date" class="inp"></el-input></el-col>
-      </el-row>
+    <div class="signatureWall" v-show="stepNine.showSignature">
+      <el-form :rules="rules" ref="stepNine" :model="stepNine">
+        <el-form-item>
+          <div>
+            <span class="item-title item-style">Merchant's Signature<span class="must-label">*</span></span>
+            <span style="padding-left: 205px;font-size: 13px;color: #212121;"><el-button size="small">Try Again</el-button></span>
+          </div>
+          <div class="box" v-show="stepNine.showSignature" id="signature"></div>
+          <div style="padding-top: 10px;padding-left: 290px"><el-button size="small">Confirm Signture</el-button></div>
+        </el-form-item>
+        <el-row :gutter="20" class="signature-btm" style="width: 100%">
+          <el-col :span="8">
+            <el-form-item prop="name">
+              <p class="item-title">Name<span class="must-label">*</span></p>
+              <el-input v-model="stepNine.name" class="inp"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
+            <el-form-item prop="title">
+              <p class="item-title">Title<span class="must-label">*</span></p>
+              <el-input v-model="stepNine.title" class="inp"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
+            <el-form-item prop="date">
+              <p class="item-title">Date<span class="must-label">*</span></p>
+              <el-input v-model="stepNine.date" class="inp"></el-input>
+            </el-form-item>
+          </el-col>
+        </el-row>
+      </el-form>
     </div>
     <hr/>
     <el-button class="previous-btn" @click="back()">Previous</el-button>
-    <el-button type="primary" class="next-btn" @click="go()" :disabled="!showSignature">Next</el-button>
+    <el-button type="primary" class="next-btn" @click="go()" :disabled="!stepNine.showSignature">Next</el-button>
   </div>
 </template>
 
 <script>
+import {isEmptyObj} from '../components/utils/common'
 export default {
   data () {
     return {
-      name: '',
-      title: '',
-      date: '',
-      allAgree: false,
-      showSignature: false,
-      signatureURL: '' // 签名图片传到服务器中保存
+      stepNine: {
+        name: '',
+        title: '',
+        date: '',
+        allAgree: false,
+        showSignature: false,
+        signatureUrl: '' // 签名图片传到服务器中保存
+      },
+      rules: {
+        name: [{required: true, message: '请输入name', trigger: 'blur'}],
+        title: [{required: true, message: '请输入title', trigger: 'blur'}],
+        date: [{required: true, message: '请输入date', trigger: 'blur'}]
+      }
     }
   },
   watch: {
-    allAgree (curVal) {
+    'stepNine.allAgree': function (curVal) {
       console.log('allAgree (curVal)', curVal)
-      curVal ? this.showSignature = true : this.showSignature = false
+      curVal ? this.stepNine.showSignature = true : this.stepNine.showSignature = false
+    }
+  },
+  created () {
+    if (window.allInfo.hasOwnProperty('stepNine') && !isEmptyObj(window.allInfo.stepNine)) {
+      this.stepNine.allAgree = window.allInfo.stepNine.allAgree
+      this.stepNine.name = window.allInfo.stepNine.name
+      this.stepNine.title = window.allInfo.stepNine.title
+      this.stepNine.date = window.allInfo.stepNine.date
+      this.stepNine.showSignature = window.allInfo.stepNine.showSignature
+      this.stepNine.signatureUrl = window.allInfo.stepNine.signatureUrl
     }
   },
   methods: {
     go () {
-      this.$router.push({ name: 'step10' })
+      this.$refs['stepNine'].validate((valid) => {
+        if (valid) {
+          window.allInfo.stepNine.allAgree = this.stepNine.allAgree
+          window.allInfo.stepNine.name = this.stepNine.name
+          window.allInfo.stepNine.title = this.stepNine.title
+          window.allInfo.stepNine.date = this.stepNine.date
+          window.allInfo.stepNine.showSignature = this.stepNine.showSignature
+          window.allInfo.stepNine.signatureUrl = this.stepNine.signatureUrl
+          this.$router.push({ name: 'step10' })
+        } else {
+          console.log('cannot go next step!!')
+          return false
+        }
+      })
     },
     back () {
       this.$router.go(-1)

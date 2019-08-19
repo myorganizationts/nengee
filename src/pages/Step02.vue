@@ -15,37 +15,46 @@
                 height="500"
             ></iframe>
         </div>
-        <el-checkbox v-model="agreeNext">I acknowledge that I have read and agree to the above</el-checkbox>
+        <el-checkbox v-model="stepTwo.agreeNext">I acknowledge that I have read and agree to the above</el-checkbox>
         <hr />
         <el-button class="previous-btn" @click="back()">Previous</el-button>
-        <el-button type="primary" class="next-btn" @click="go()" :disabled="isDisabled">Next</el-button>
+        <el-button type="primary" class="next-btn" @click="go()" :disabled="stepTwo.isDisabled">Next</el-button>
     </div>
 </template>
 
 <script>
+import {isEmptyObj} from '../components/utils/common'
 export default {
-  name: 'Step01',
   data () {
     return {
-      isDisabled: true,
-      agreeNext: false
+      stepTwo: {
+        agreeNext: false,
+        isDisabled: true
+      }
     }
   },
   computed: {
   },
   watch: {
     // 同意协议，才能下一步
-    agreeNext (newVal, oldVal) {
-      newVal ? this.isDisabled = false : this.isDisabled = true
+    'stepTwo.agreeNext': function (newVal) {
+      newVal ? this.stepTwo.isDisabled = false : this.stepTwo.isDisabled = true
+    }
+  },
+  created () {
+    if (window.allInfo.hasOwnProperty('stepTwo') && !isEmptyObj(window.allInfo.stepTwo)) {
+      this.stepTwo.agreeNext = window.allInfo.stepTwo.agreeNext
     }
   },
   mounted () {
   },
   methods: {
     go () {
+      window.allInfo.stepTwo.agreeNext = this.stepTwo.agreeNext
       this.$router.push({ name: 'step03' })
     },
     back () {
+      window.allInfo.stepTwo.agreeNext = null // 故意设定为null
       this.$router.go(-1)
     }
   }

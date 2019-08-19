@@ -4,14 +4,15 @@
     <header></header>
     <abo-test></abo-test>
     <!--<hello-world></hello-world>-->
-    <div id="pdfDom" style="padding-top: 55px;background-color:#fff;">
+    <!--<div id="pdfDom" style="padding-top: 55px;background-color:#fff;">-->
+    <div id="pdfDomBK" style="padding-top: 55px;background-color:#fff;">
       <p>dsdsdsds</p>
       <div>divdvid</div>
       <span>span111</span><span>span222</span>
       <button>button</button>
       <input placeholder="placeholder1111"/>
     </div>
-    <button type="button" v-on:click="getPdf()">导出pdf</button>
+    <!--<button type="button" v-on:click="getPdf()">导出pdf</button>-->
   </div>
 </template>
 
